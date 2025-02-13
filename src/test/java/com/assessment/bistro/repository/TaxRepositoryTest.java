@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -37,11 +38,13 @@ class TaxRepositoryTest {
 
     @Test
     public void testRecordOneFound() {
-
+        Optional<Tax> taxWithIdOne = repo.findById(1);
+        assertEquals(expectedRecord1.toString(), taxWithIdOne.get().toString());
     }
 
     @Test
     public void testRecordTwoFound() {
-
+        Optional<Tax> taxWithIdTwo = repo.findById(2);
+        assertEquals(expectedRecord2.toString(), taxWithIdTwo.get().toString());
     }
 }
