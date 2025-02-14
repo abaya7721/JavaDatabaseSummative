@@ -12,15 +12,22 @@ public class OrderItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int orderItemId;
     private int orderId;
-    private int serverId;
-    private LocalDateTime orderDate;
-    private BigDecimal subTotal;
-    private BigDecimal tax;
+    private int itemId;
+    private int quantity;
+    private BigDecimal price;
 
-    private BigDecimal tip;
+    public OrderItem() {
+    }
 
-    // Getters and setters
+    public OrderItem(int orderItemId, int orderId, int itemId, int quantity, BigDecimal price) {
+        this.orderItemId = orderItemId;
+        this.orderId = orderId;
+        this.itemId = itemId;
+        this.quantity = quantity;
+        this.price = price;
+    }
 
     public int getOrderId() {
         return orderId;
@@ -30,44 +37,35 @@ public class OrderItem {
         this.orderId = orderId;
     }
 
-    public int getServerId() {
-        return serverId;
+    public int getOrderItemId() {
+        return orderItemId;
     }
 
-    public void setServerId(int serverId) {
-        this.serverId = serverId;
+    public void setOrderItemId(int orderItemId) {
+        this.orderItemId = orderItemId;
     }
 
-    public LocalDateTime getOrderDate() {
-        return orderDate;
+    public int getItemId() {
+        return itemId;
     }
 
-    public void setOrderDate(LocalDateTime orderDate) {
-        this.orderDate = orderDate;
+    public void setItemId(int itemId) {
+        this.itemId = itemId;
     }
 
-    public BigDecimal getSubTotal() {
-        return subTotal;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setSubTotal(BigDecimal subTotal) {
-        this.subTotal = subTotal;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
-    public BigDecimal getTax() {
-        return tax;
+    public BigDecimal getPrice() {
+        return price;
     }
 
-    public void setTax(BigDecimal tax) {
-        this.tax = tax;
-    }
-
-    public BigDecimal getTip() {
-        return tip;
-    }
-
-    public void setTip(BigDecimal tip) {
-        this.tip = tip;
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 }
-

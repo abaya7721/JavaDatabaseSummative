@@ -1,13 +1,16 @@
 package com.assessment.bistro.model;
 
+
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
+
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.Collection;
 
+
 @Entity
+@Table(name="`order`")
 public class Order {
 
     @Id
@@ -15,7 +18,7 @@ public class Order {
     private int orderId;
     private int serverId;
     @Temporal(TemporalType.DATE)
-    private LocalDateTime orderDate;
+    private LocalDate orderDate;
     private BigDecimal subTotal;
     private BigDecimal tax;
     private BigDecimal tip;
@@ -25,8 +28,8 @@ public class Order {
 
     }
 
-    public Order(int orderId, int serverId, LocalDateTime orderDate, BigDecimal subTotal, BigDecimal tax, BigDecimal tip, BigDecimal total) {
-        this.orderId = orderId;
+    public Order(int serverId, LocalDate orderDate, BigDecimal subTotal, BigDecimal tax, BigDecimal tip, BigDecimal total) {
+
         this.serverId = serverId;
         this.orderDate = orderDate;
         this.subTotal = subTotal;
@@ -51,11 +54,11 @@ public class Order {
         this.serverId = serverId;
     }
 
-    public LocalDateTime getOrderDate() {
+    public LocalDate getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(LocalDateTime orderDate) {
+    public void setOrderDate(LocalDate orderDate) {
         this.orderDate = orderDate;
     }
 
@@ -108,3 +111,4 @@ public class Order {
 //
 //    }
 }
+
